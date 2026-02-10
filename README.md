@@ -25,4 +25,5 @@ If you are developing a production application, we recommend using TypeScript wi
 ```bash
 npm install
 npm run dev
+npm.cmd run dev
 
