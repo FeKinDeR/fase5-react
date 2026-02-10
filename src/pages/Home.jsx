@@ -21,15 +21,16 @@ export default function Home() {
 
           {/* Modernização leve: link com cara de botão (sem <button><a>) */}
           <div className="botaoyt">
-            <a
-              className="BotaoYT"
-              ▶ Assistir vídeo
-              href="https://youtu.be/0J2eZ4qtm0M"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://youtu.be/0J2eZ4qtm0M
-            </a>
+           <a
+  className="BotaoYT"
+  href="https://youtu.be/0J2eZ4qtm0M"
+  target="_blank"
+  rel="noreferrer"
+>
+  ▶ Assistir vídeo
+</a>
+
+
           </div>
         </div>
 
