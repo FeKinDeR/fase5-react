@@ -1,12 +1,252 @@
-:root { color-scheme: dark; }
+/* =========
+   AgroTech UI Polish (SAFE OVERRIDES)
+   ========= */
 
-a { text-underline-offset: 3px; }
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-  outline: 2px solid #ff2d55;
+/* Paleta e base */
+:root{
+  --bg: #f3f7f1;
+  --surface: #ffffff;
+  --text: #0f2a12;
+  --muted: #385a3c;
+  --brand: #2e7d32;
+  --brand-2: #1b5e20;
+  --ring: #ff2d55;
+  --shadow: 0 10px 30px rgba(0,0,0,.12);
+  --shadow-soft: 0 10px 22px rgba(0,0,0,.10);
+  --radius: 16px;
+}
+
+html, body{
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* links e foco (acessibilidade) */
+a{ text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--ring);
   outline-offset: 3px;
 }
 
-.card, .card-link { transition: transform .15s ease, box-shadow .15s ease; }
-.card:hover, .card-link:hover { transform: translateY(-2px); }
+/* ===== NAVBAR ===== */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.10);
+}
 
-button { cursor: pointer; }
+.navbar .logo img{
+  width: 86px; /* ajuste se ficar grande */
+  height: auto;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,.20));
+}
+
+.nav-links .btn-nav{
+  border-radius: 999px;
+  padding: 10px 14px;
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.nav-links .btn-nav:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(0,0,0,.12);
+}
+
+/* Estado ativo do menu (NavLink adiciona .active automaticamente) */
+.nav-links .btn-nav.active{
+  background: rgba(255,255,255,.18);
+  outline: 1px solid rgba(255,255,255,.24);
+}
+
+/* ===== HERO/BANNER ===== */
+.banner{
+  position: relative;
+  overflow: hidden;
+}
+
+/* cria um overlay elegante no banner sem trocar imagem */
+.banner::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.15));
+  pointer-events: none;
+}
+
+.banner-texto{
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 70px 18px;
+}
+
+.banner-texto h1{
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  text-shadow: 0 10px 25px rgba(0,0,0,.35);
+}
+
+.banner-texto p{
+  font-size: 1.05rem;
+  opacity: .95;
+  max-width: 60ch;
+}
+
+/* ===== SEÇÕES (padding/width consistentes) ===== */
+.intro, .tecnologias, .links, .sobre, .contato{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 18px;
+}
+
+/* ===== BOTÕES (tipo “Assistir vídeo”) ===== */
+.BotaoYT{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #38a83f, #2e7d32);
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: var(--shadow-soft);
+  transition: transform .15s ease, filter .15s ease;
+}
+.BotaoYT:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+/* ===== CARDS (Tecnologias / Sobre Nós / Links) ===== */
+.cards{
+  gap: 18px; /* melhora respiro */
+}
+
+.card, .card-link{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,.06);
+  overflow: hidden;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover, .card-link:hover{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.card h3{
+  color: var(--brand-2);
+  letter-spacing: -0.2px;
+}
+
+.card p{
+  color: var(--muted);
+}
+
+/* imagens dos cards mais “premium” */
+.card img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* ===== LINKS (Órgãos e iniciativas) ===== */
+.card-link a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== SOBRE NÓS (corrige seu problema de contraste) ===== */
+.sobre{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,.06);
+}
+
+.sobre, .sobre p, .sobre h2, .sobre h3,
+.missao p, .visao p{
+  color: var(--text) !important;
+}
+
+.sobre p{
+  color: var(--muted) !important;
+  max-width: 78ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sobre h2{
+  margin-bottom: 14px;
+}
+.missao, .visao{
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+/* ===== CONTATO (form mais bonito) ===== */
+.contato form{
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(0,0,0,.06);
+  padding: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.form-group label{
+  color: var(--text);
+  font-weight: 600;
+}
+
+.form-group input, .form-group textarea{
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  color: var(--text);
+  padding: 12px 12px;
+}
+
+.error{
+  color: #b00020;
+  font-weight: 600;
+}
+
+/* botão do form */
+.contato button[type="submit"],
+.contato button[type="button"]{
+  border-radius: 999px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #38a83f, #2e7d32);
+  color: #fff;
+  border: none;
+  box-shadow: var(--shadow-soft);
+  transition: transform .15s ease, filter .15s ease;
+}
+
+.contato button:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.02);
+}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top: 40px;
+  background: #1e5f24;
+  color: rgba(255,255,255,.92);
+  box-shadow: 0 -10px 20px rgba(0,0,0,.10);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 720px){
+  .banner-texto{ padding: 54px 16px; }
+  .card img{ height: 180px; }
+}
