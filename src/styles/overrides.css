@@ -1,8 +1,4 @@
-/* =========
-   AgroTech UI Polish (SAFE OVERRIDES)
-   ========= */
 
-/* Paleta e base */
 :root{
   --bg: #f3f7f1;
   --surface: #ffffff;
@@ -55,7 +51,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   box-shadow: 0 8px 14px rgba(0,0,0,.12);
 }
 
-/* Estado ativo do menu (NavLink adiciona .active automaticamente) */
+/* Estado ativo do menu */
 .nav-links .btn-nav.active{
   background: rgba(255,255,255,.18);
   outline: 1px solid rgba(255,255,255,.24);
@@ -67,7 +63,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   overflow: hidden;
 }
 
-/* cria um overlay elegante no banner sem trocar imagem */
 .banner::after{
   content: "";
   position: absolute;
@@ -96,14 +91,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   max-width: 60ch;
 }
 
-/* ===== SEÇÕES (padding/width consistentes) ===== */
+/* ===== SEÇÕES ===== */
 .intro, .tecnologias, .links, .sobre, .contato{
   max-width: 1100px;
   margin: 0 auto;
   padding: 36px 18px;
 }
 
-/* ===== BOTÕES (tipo “Assistir vídeo”) ===== */
+/* ===== BOTÕES  ===== */
 .BotaoYT{
   display: inline-flex;
   align-items: center;
@@ -121,7 +116,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   filter: brightness(1.03);
 }
 
-/* ===== CARDS (Tecnologias / Sobre Nós / Links) ===== */
+/* ===== CARDS (===== */
 .cards{
   gap: 18px; /* melhora respiro */
 }
@@ -162,7 +157,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: inherit;
 }
 
-/* ===== SOBRE NÓS (corrige seu problema de contraste) ===== */
+/* ===== SOBRE NÓS  ===== */
 .sobre{
   background: var(--surface);
   border-radius: var(--radius);
@@ -191,7 +186,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   border-top: 1px solid rgba(0,0,0,.08);
 }
 
-/* ===== CONTATO (form mais bonito) ===== */
+/* ===== CONTATO  ===== */
 .contato form{
   background: var(--surface);
   border-radius: var(--radius);
